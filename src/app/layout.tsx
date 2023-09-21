@@ -1,5 +1,7 @@
-import "./globals.css";
 import type { Metadata } from "next";
+import { Analytics } from "@vercel/analytics/react";
+
+import "./globals.css";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://cazcik.me"),
@@ -54,7 +56,10 @@ export default function RootLayout({
       lang="en"
       className="scroll-smooth bg-neutral-50 text-neutral-700 antialiased selection:bg-neutral-300 selection:text-neutral-800 dark:bg-neutral-950 dark:text-neutral-300 dark:selection:bg-neutral-700 dark:selection:text-neutral-200"
     >
-      <body>{children}</body>
+      <body>
+        {children}
+        <Analytics />
+      </body>
     </html>
   );
 }
