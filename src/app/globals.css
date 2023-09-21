@@ -1,0 +1,19 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: "Source Sans 3 VF";
+  font-weight: 200 900;
+  font-style: normal;
+  font-stretch: normal;
+  src: url("/fonts/source-sans-3vf-roman.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "Source Sans 3 VF";
+  font-weight: 200 900;
+  font-style: italic;
+  font-stretch: normal;
+  src: url("/fonts/source-sans-3vf-italic.woff2") format("woff2");
+}
