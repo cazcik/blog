@@ -7,7 +7,7 @@ export const metadata: Metadata = {
     title: "Zac Wojcik",
     images: [
       {
-        url: "https://somnum.io/og?title=Zac Wojcik",
+        url: "https://cazcik.me/og?title=Zac Wojcik",
         width: 1200,
         height: 630,
       },
@@ -15,7 +15,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     title: "Zac Wojcik",
-    images: ["https://somnum.io/og?title=Zac Wojcik"],
+    images: ["https://cazcik.me/og?title=Zac Wojcik"],
   },
 };
 
