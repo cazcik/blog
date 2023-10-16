@@ -68,7 +68,7 @@ export default function RootLayout({
             <NavLink name="Blog" link="/blog" />
           </nav>
         </header>
-        <main className="pt-20">{children}</main>
+        <main className="py-20">{children}</main>
         <Analytics />
       </body>
     </html>

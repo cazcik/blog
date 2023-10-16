@@ -1,6 +1,29 @@
 import Link from "next/link";
+import type { Metadata } from "next";
+import { allPosts, Post } from "contentlayer/generated";
+import { compareDesc, format, parseISO } from "date-fns";
 
-const posts: any[] = [];
+export const metadata: Metadata = {
+  title: "Blog",
+  openGraph: {
+    title: "Blog",
+    images: [
+      {
+        url: "https://cazcik.me/og?title=Blog",
+        width: 1200,
+        height: 630,
+      },
+    ],
+  },
+  twitter: {
+    title: "Blog",
+    images: ["https://cazcik.me/og?title=Blog"],
+  },
+};
+
+const posts: Post[] = allPosts.sort((a, b) =>
+  compareDesc(new Date(a.date), new Date(b.date)),
+);
 
 export default function BlogPage() {
   return (
@@ -23,18 +46,20 @@ export default function BlogPage() {
           <p>Looks like there are literally no posts right now.</p>
         ) : null}
         {posts.length > 0 ? (
-          posts.map((p) => (
+          posts.map((p: Post) => (
             <div
               key={p.title}
               className="flex items-center justify-between space-y-2"
             >
               <Link
-                href="#"
+                href={p.url}
                 className="font-semibold text-black underline-offset-4 hover:underline dark:text-white"
               >
                 {p.title}
               </Link>
-              <p className="text-neutral-500">{p.published}</p>
+              <p className="text-neutral-500">
+                {format(parseISO(p.date), "LLLL d, yyyy")}
+              </p>
             </div>
           ))
         ) : (
