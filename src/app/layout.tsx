@@ -61,10 +61,11 @@ export default function RootLayout({
     >
       <body className="mx-auto flex min-h-screen max-w-lg flex-col p-5">
         <header className="flex flex-col pt-12">
-          <nav className="mt-2 flex items-center space-x-4">
+          <nav className="mt-2 flex items-center space-x-5">
             <Link href="/">
               <Image src="/images/ice.png" height={30} width={30} alt="ice" />
             </Link>
+            <NavLink name="About" link="/about" />
             <NavLink name="Blog" link="/blog" />
           </nav>
         </header>
