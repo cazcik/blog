@@ -60,10 +60,6 @@ export default function Home() {
           </h1>
         </div>
         <div className="mt-4 flex flex-col pl-6">
-          <p className="text-neutral-500">
-            Husband, father of two, beer league champion, bourbon sipper,
-            mountain biker, and security engineer from Detroit.
-          </p>
           <p className="mt-4 text-neutral-500">
             I'm an application security engineer at PMG helping developers write
             secure code, design secure systems, and build for resiliency.
