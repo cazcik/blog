@@ -32,9 +32,8 @@ export default function BlogPage() {
         </div>
         <div className="mt-4 flex flex-col pl-6">
           <p className="text-neutral-500">
-            I'm an application security engineer at PMG who is passionate about
-            designing secure systems, writing secure code, and building for
-            resiliency.
+            Currently I'm an application security engineer at PMG, previously I
+            worked at NTT in security operations and engineering.
           </p>
         </div>
         <div className="mt-4 flex items-center justify-center">
@@ -48,9 +47,9 @@ export default function BlogPage() {
         </div>
         <div className="mt-4 flex flex-col pl-6">
           <p className="mt-2 text-neutral-500">
-            I love working with new web technologies on both the frontend and
-            backend. I consider myself to be very passionate about about design
-            and creating awesome user experiences.
+            I love learning new web technologies on both the frontend and
+            backend. I consider myself to be very passionate about design and
+            creating awesome user experiences.
           </p>
         </div>
         <div className="mt-4 flex">
