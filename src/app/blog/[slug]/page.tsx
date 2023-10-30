@@ -37,7 +37,7 @@ const PostLayout = ({ params }: { params: { slug: string } }) => {
             {post.title}
           </h1>
         </div>
-        <div className="mt-4 flex flex-col pl-6">
+        <div className="mt-4 flex flex-col">
           <article className="prose prose-neutral dark:prose-invert">
             <div
               className="[&>*:last-child]:mb-0 [&>*]:mb-3"

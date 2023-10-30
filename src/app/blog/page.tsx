@@ -34,7 +34,7 @@ export default function BlogPage() {
             Blog
           </h1>
         </div>
-        <div className="mt-4 flex flex-col pl-6">
+        <div className="mt-4 flex flex-col">
           <p className="text-neutral-500">
             If I'm not busy reading, I'm probably writing about security,
             programming, technology, and business.

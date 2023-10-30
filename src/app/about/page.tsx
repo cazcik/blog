@@ -30,7 +30,7 @@ export default function BlogPage() {
             About
           </h1>
         </div>
-        <div className="mt-4 flex flex-col pl-6">
+        <div className="mt-4 flex flex-col">
           <p className="text-neutral-500">
             Currently I'm an application security engineer at PMG, previously I
             worked at NTT in security operations and engineering.
@@ -45,7 +45,7 @@ export default function BlogPage() {
             className="rounded-md"
           />
         </div>
-        <div className="mt-4 flex flex-col pl-6">
+        <div className="mt-4 flex flex-col">
           <p className="mt-2 text-neutral-500">
             I love learning new web technologies on both the frontend and
             backend. I consider myself to be very passionate about design and
@@ -76,7 +76,7 @@ export default function BlogPage() {
             </div>
           </Link>
         </div>
-        <div className="mt-4 flex flex-col pl-6">
+        <div className="mt-4 flex flex-col">
           <p className="mt-2 text-neutral-500">
             Currently I'm building a security platform called Somnum which
             provides small software companies an out of the box security program

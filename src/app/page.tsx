@@ -59,7 +59,7 @@ export default function Home() {
             Zac Wojcik
           </h1>
         </div>
-        <div className="mt-4 flex flex-col pl-6">
+        <div className="mt-4 flex flex-col">
           <p className="mt-4 text-neutral-500">
             I'm an application security engineer at PMG helping developers write
             secure code, design secure systems, and build for resiliency.
@@ -77,7 +77,7 @@ export default function Home() {
             Links
           </h1>
         </div>
-        <div className="mt-4 flex flex-col space-y-4 pl-6">
+        <div className="mt-4 flex flex-col space-y-4">
           {socials.map((s) => (
             <div key={s.name}>
               <p className="text-sm text-neutral-400 dark:text-neutral-600">
