@@ -7,6 +7,8 @@ export const metadata: Metadata = {
   title: "Blog",
   openGraph: {
     title: "Blog",
+    description:
+      "Probably writing about security, programming, technology, or business.",
     images: [
       {
         url: "https://cazcik.me/og?title=Blog",
@@ -17,6 +19,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     title: "Blog",
+    description:
+      "Probably writing about security, programming, technology, or business.",
     images: ["https://cazcik.me/og?title=Blog"],
   },
 };
@@ -37,7 +41,7 @@ export default function BlogPage() {
         <div className="mt-4 flex flex-col">
           <p className="text-neutral-500">
             If I'm not busy reading, I'm probably writing about security,
-            programming, technology, and business.
+            programming, technology, or business.
           </p>
         </div>
       </section>

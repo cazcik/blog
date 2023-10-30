@@ -7,6 +7,8 @@ export const metadata: Metadata = {
   title: "About",
   openGraph: {
     title: "About",
+    description:
+      "I'm an application security engineer helping developers write secure code, design secure systems, and build for resiliency.",
     images: [
       {
         url: "https://cazcik.me/og?title=About",
@@ -17,6 +19,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     title: "About",
+    description:
+      "I'm an application security engineer helping developers write secure code, design secure systems, and build for resiliency.",
     images: ["https://cazcik.me/og?title=About"],
   },
 };

@@ -10,6 +10,7 @@ export const generateMetadata = ({ params }: { params: { slug: string } }) => {
     title: post.title,
     openGraph: {
       title: post.title,
+      description: post.description,
       images: [
         {
           url: `https://cazcik.me/og?title=${post.title}`,
@@ -20,6 +21,7 @@ export const generateMetadata = ({ params }: { params: { slug: string } }) => {
     },
     twitter: {
       title: post.title,
+      description: post.description,
       images: [`https://cazcik.me/og?title=${post.title}`],
     },
   };

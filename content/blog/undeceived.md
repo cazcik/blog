@@ -1,5 +1,6 @@
 ---
 title: Undeceived
+description: Astonishment and disillusionment in cybersecurity and what do we do.
 date: 2023-10-30 14:04:00
 ---
 
