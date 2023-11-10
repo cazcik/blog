@@ -60,19 +60,19 @@ export default function BlogPage() {
           <Link
             target="_blank"
             rel="noopener noreferrer"
-            href="https://somnum.io"
+            href="https://wiards.io"
             className="flex w-full items-center justify-between rounded-md border border-neutral-200 p-4 hover:border-neutral-300 dark:border-neutral-800 dark:hover:border-neutral-700"
           >
             <div className="flex items-center space-x-4">
               <Image
                 height={30}
                 width={30}
-                alt="somnum s icon"
-                src="/images/somnum-square-black.png"
+                alt="wiards icon"
+                src="/images/w-black-rd-500.png"
                 className="rounded-full"
               />
               <span className="text-lg font-black text-black dark:text-white">
-                Somnum
+                Wiards
               </span>
             </div>
             <div className="h-5 w-5 dark:text-white">
@@ -82,7 +82,7 @@ export default function BlogPage() {
         </div>
         <div className="mt-4 flex flex-col">
           <p className="mt-2 text-neutral-500">
-            Currently I'm building a security platform called Somnum which
+            Currently I'm building a security platform called Wiards which
             provides small software companies an out of the box security program
             to help with assessments, penetration tests, employee trainings, and
             more.

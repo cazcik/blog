@@ -65,7 +65,7 @@ export default function Home() {
             secure code, design secure systems, and build for resiliency.
           </p>
           <p className="mt-4 text-neutral-500">
-            Currently I'm building a security platform called Somnum, providing
+            Currently I'm building a security platform called Wiards, providing
             an out of the box security program to help companies with
             assessments, pentests, training, and more.
           </p>
