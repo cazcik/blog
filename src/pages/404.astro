@@ -1,0 +1,12 @@
+---
+import RootLayout from "../layouts/root.astro";
+---
+
+<RootLayout title="Not found">
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      // @ts-ignore
+      plausible("404", { props: { path: document.location.pathname } });
+    });
+  </script>
+</RootLayout>
