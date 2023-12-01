@@ -14,7 +14,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className="bg-neutral-100 dark:bg-neutral-900 antialiased scroll-smooth"
+      className="bg-neutral-100 dark:bg-neutral-900 antialiased scroll-smooth selection:bg-neutral-300 dark:selection:bg-neutral-700"
     >
       <body>
         {children}

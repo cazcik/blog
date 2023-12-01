@@ -4,7 +4,7 @@ import Link from "next/link";
 export default function Home() {
   return (
     <div className="w-full flex flex-col min-h-screen max-w-md mx-auto">
-      <div className="flex flex-col m-auto">
+      <div className="flex flex-col m-auto p-5">
         <div className="flex items-center gap-4">
           <div>
             <Image
@@ -16,7 +16,7 @@ export default function Home() {
             />
           </div>
           <div>
-            <h1 className="text-black text-lg leading-6 dark:text-white font-semibold">
+            <h1 className="text-black text-lg leading-6 dark:text-white">
               Zac Wojcik
             </h1>
             <p className="text-neutral-500 v">Application Security Engineer</p>
@@ -78,7 +78,7 @@ export default function Home() {
             </div>
           </div>
         </div>
-        <div className="flex items-center gap-4 pt-8">
+        <div className="flex items-center gap-4 pt-4">
           <p className="text-neutral-500">
             I'm an application security engineer helping developers write secure
             code, design secure systems, and build for resiliency.
