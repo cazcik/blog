@@ -7,17 +7,15 @@ export default function BlogLayout({
   children: React.ReactNode;
 }) {
   return (
-    <div className="mx-auto flex min-h-screen max-w-3xl flex-col">
+    <div className="mx-auto flex min-h-screen max-w-2xl flex-col">
       <header className="mt-12 px-5 py-3 lowercase">
         <nav className="flex items-center gap-6">
           <NavLink link="/" title="Home" />
+          <NavLink link="/projects" title="Projects" />
         </nav>
       </header>
       <main className="mt-12 grow px-5 md:mt-16">{children}</main>
-      <footer className="mb-5 flex items-center justify-between px-5 py-3">
-        <div>
-          <p className="text-neutral-500">&copy; 2024 Zac Wojcik</p>
-        </div>
+      <footer className="mb-5 mt-14 flex items-center px-5 py-3">
         <div className="flex gap-4">
           <div className="h-4 w-4">
             <Link
