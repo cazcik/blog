@@ -1,0 +1,28 @@
+---
+title: Hello World
+date: 2026-06-12
+author: Zac Wojcik
+summary: A first post showing off the MDX pipeline.
+---
+
+import { Callout } from "#/components/Callout";
+
+This is my **first post**, rendered from MDX.
+
+<Callout>
+  Because posts are MDX, I can drop real React components right into the prose —
+  like this callout.
+</Callout>
+
+Here's some code with syntax highlighting:
+
+```ts
+function greet(name: string): string {
+  return `Hello, ${name}!`;
+}
+```
+
+- Lists work
+- So do [links](https://x.com/cazcik)
+
+> And blockquotes too.

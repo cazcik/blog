@@ -1,0 +1,41 @@
+---
+title: Secure by Default
+date: 2026-05-28
+author: Zac Wojcik
+summary: Why safe defaults beat security documentation every time.
+---
+
+import { Callout } from "#/components/Callout";
+
+The most effective security control is the one nobody has to think about. Every time you rely on a user — whether that user is a developer, an operator, or an end customer — to make the correct security decision, you introduce a chance for that decision to go wrong. Multiply that chance across thousands of users and millions of interactions, and the failures become a certainty rather than a possibility.
+
+<Callout>
+  If your users have to read the docs to be secure, most of them won't be.
+</Callout>
+
+## Defaults are decisions
+
+A default value is not neutral. It is a decision you have made on behalf of everyone who never changes it — and in practice, that is the overwhelming majority of people. When you set a default, you are choosing the outcome for the long tail of users who copy your example, accept the prompt, or never open the configuration file at all.
+
+Consider an API client that controls TLS verification. The naive version treats both paths as equal:
+
+```ts
+function createClient(opts: { verifyTls?: boolean } = {}) {
+  const verifyTls = opts.verifyTls ?? true;
+  return { verifyTls };
+}
+```
+
+The detail that matters is the `?? true`. The insecure path now requires an explicit, visible opt-out. Someone has to type `verifyTls: false` and look at it. That single keystroke is a speed bump — a moment where a reviewer might ask "wait, why are we disabling that?"
+
+## Make failure fail closed
+
+Good defaults share a property: when something goes wrong, they fail in the safe direction.
+
+- The insecure path requires explicit opt-out, never silent fallback
+- The default is the conservative one, even if it is slightly less convenient
+- Errors deny access rather than granting it
+
+> Make the secure path the path of least resistance, and most people will walk it without ever knowing they had a choice.
+
+This is the quiet leverage of defaults. You are not writing documentation that people skip or training that people forget. You are shaping the single decision that most of your users will never revisit — and getting it right once, for everyone.

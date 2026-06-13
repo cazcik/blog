@@ -1,0 +1,45 @@
+---
+title: Reading Source Code
+date: 2026-04-22
+author: Zac Wojcik
+summary: How I review unfamiliar codebases for security issues.
+---
+
+import { Callout } from "#/components/Callout";
+
+When I'm handed a new codebase to review, I don't start at `main()` and read top to bottom. That works for understanding architecture, but it is a slow way to find security bugs. Instead, I start at the edges — wherever untrusted input enters the system — and follow it inward.
+
+<Callout>
+  Follow the data, not the call stack.
+</Callout>
+
+## Find the entry points
+
+The first task is to map every place the outside world can reach the code. For most services that means HTTP handlers, but it also includes CLI arguments, message queues, scheduled jobs, webhooks, and file uploads. A quick grep through the routing layer usually reveals the shape of it:
+
+```json
+{
+  "http": "src/routes",
+  "cli": "src/commands",
+  "jobs": "src/workers",
+  "webhooks": "src/integrations"
+}
+```
+
+Write these down. This list is your worklist for the rest of the review.
+
+## Trace input to a sink
+
+From each entry point, follow the data as it moves through the system until it reaches a *sink* — a place where it can cause an effect. Sinks are where input turns into action:
+
+- A database query (injection)
+- A shell command or subprocess (command injection)
+- A file path (path traversal)
+- An HTML response (cross-site scripting)
+- A deserialization call (remote code execution)
+
+The interesting bugs almost always live in the gap between the entry point and the sink, in the validation and transformation that was supposed to make the input safe but didn't quite.
+
+## Pay attention to the boring parts
+
+The vulnerabilities I find most often are not clever. They are in the code people stopped looking at: the legacy admin endpoint, the internal tool "nobody can reach," the helper function that was written quickly and copied everywhere. Untrusted input has a way of reaching places the original author never imagined. Your job is to imagine them.
