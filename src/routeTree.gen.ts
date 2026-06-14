@@ -12,6 +12,7 @@ import { Route as rootRouteImport } from './routes/__root'
 import { Route as AppRouteImport } from './routes/_app'
 import { Route as AppIndexRouteImport } from './routes/_app/index'
 import { Route as ApiHelloRouteImport } from './routes/api/hello'
+import { Route as AppSplatRouteImport } from './routes/_app/$'
 import { Route as AppPostsRouteRouteImport } from './routes/_app/posts/route'
 import { Route as AppPostsIndexRouteImport } from './routes/_app/posts/index'
 import { Route as ApiV2FooRouteImport } from './routes/api/v2/foo'
@@ -33,6 +34,11 @@ const ApiHelloRoute = ApiHelloRouteImport.update({
   id: '/api/hello',
   path: '/api/hello',
   getParentRoute: () => rootRouteImport,
+} as any)
+const AppSplatRoute = AppSplatRouteImport.update({
+  id: '/$',
+  path: '/$',
+  getParentRoute: () => AppRoute,
 } as any)
 const AppPostsRouteRoute = AppPostsRouteRouteImport.update({
   id: '/posts',
@@ -73,6 +79,7 @@ const AppPostsSlugRoute = AppPostsSlugRouteImport.update({
 export interface FileRoutesByFullPath {
   '/': typeof AppIndexRoute
   '/posts': typeof AppPostsRouteRouteWithChildren
+  '/$': typeof AppSplatRoute
   '/api/hello': typeof ApiHelloRoute
   '/posts/$slug': typeof AppPostsSlugRoute
   '/api/v1/bar': typeof ApiV1BarRoute
@@ -82,6 +89,7 @@ export interface FileRoutesByFullPath {
   '/posts/': typeof AppPostsIndexRoute
 }
 export interface FileRoutesByTo {
+  '/$': typeof AppSplatRoute
   '/api/hello': typeof ApiHelloRoute
   '/': typeof AppIndexRoute
   '/posts/$slug': typeof AppPostsSlugRoute
@@ -95,6 +103,7 @@ export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/_app': typeof AppRouteWithChildren
   '/_app/posts': typeof AppPostsRouteRouteWithChildren
+  '/_app/$': typeof AppSplatRoute
   '/api/hello': typeof ApiHelloRoute
   '/_app/': typeof AppIndexRoute
   '/_app/posts/$slug': typeof AppPostsSlugRoute
@@ -109,6 +118,7 @@ export interface FileRouteTypes {
   fullPaths:
     | '/'
     | '/posts'
+    | '/$'
     | '/api/hello'
     | '/posts/$slug'
     | '/api/v1/bar'
@@ -118,6 +128,7 @@ export interface FileRouteTypes {
     | '/posts/'
   fileRoutesByTo: FileRoutesByTo
   to:
+    | '/$'
     | '/api/hello'
     | '/'
     | '/posts/$slug'
@@ -130,6 +141,7 @@ export interface FileRouteTypes {
     | '__root__'
     | '/_app'
     | '/_app/posts'
+    | '/_app/$'
     | '/api/hello'
     | '/_app/'
     | '/_app/posts/$slug'
@@ -171,6 +183,13 @@ declare module '@tanstack/react-router' {
       fullPath: '/api/hello'
       preLoaderRoute: typeof ApiHelloRouteImport
       parentRoute: typeof rootRouteImport
+    }
+    '/_app/$': {
+      id: '/_app/$'
+      path: '/$'
+      fullPath: '/$'
+      preLoaderRoute: typeof AppSplatRouteImport
+      parentRoute: typeof AppRoute
     }
     '/_app/posts': {
       id: '/_app/posts'
@@ -240,11 +259,13 @@ const AppPostsRouteRouteWithChildren = AppPostsRouteRoute._addFileChildren(
 
 interface AppRouteChildren {
   AppPostsRouteRoute: typeof AppPostsRouteRouteWithChildren
+  AppSplatRoute: typeof AppSplatRoute
   AppIndexRoute: typeof AppIndexRoute
 }
 
 const AppRouteChildren: AppRouteChildren = {
   AppPostsRouteRoute: AppPostsRouteRouteWithChildren,
+  AppSplatRoute: AppSplatRoute,
   AppIndexRoute: AppIndexRoute,
 }
 

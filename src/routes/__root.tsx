@@ -1,5 +1,6 @@
 import { HeadContent, Scripts, createRootRoute } from "@tanstack/react-router";
 
+import { NotFound } from "../components/NotFound";
 import appCss from "../styles.css?url";
 import interRegular from "../assets/fonts/inter.woff2?url";
 import interItalic from "../assets/fonts/inter-italic.woff2?url";
@@ -37,6 +38,7 @@ export const Route = createRootRoute({
     ],
   }),
   shellComponent: RootDocument,
+  notFoundComponent: NotFound,
 });
 
 function RootDocument({ children }: { children: React.ReactNode }) {

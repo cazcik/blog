@@ -1,6 +1,11 @@
 import { createFileRoute, Link, Outlet } from "@tanstack/react-router";
 
-export const Route = createFileRoute("/_app")({ component: AppLayout });
+import { NotFound } from "#/components/NotFound";
+
+export const Route = createFileRoute("/_app")({
+  component: AppLayout,
+  notFoundComponent: NotFound,
+});
 
 function AppLayout() {
   return (
