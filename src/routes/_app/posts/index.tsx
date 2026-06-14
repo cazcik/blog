@@ -1,10 +1,18 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 
 import { posts } from "#/lib/posts";
+import { seo } from "#/lib/seo";
 
 export const Route = createFileRoute("/_app/posts/")({
   component: BlogIndex,
   loader: () => posts,
+  head: () => ({
+    meta: seo({
+      title: "Posts",
+      description: "Writing on security, secure systems, and open source.",
+      path: "/posts",
+    }),
+  }),
 });
 
 function formatDate(date: string) {

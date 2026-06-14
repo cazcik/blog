@@ -1,12 +1,26 @@
 import { createFileRoute, Link, notFound } from "@tanstack/react-router";
 
 import { getPost } from "#/lib/posts";
+import { seo } from "#/lib/seo";
 
 export const Route = createFileRoute("/_app/posts/$slug")({
   component: Post,
   loader: ({ params }) => {
-    if (!getPost(params.slug)) throw notFound();
+    const post = getPost(params.slug);
+    if (!post) throw notFound();
+    const { Component: _c, ...meta } = post;
+    return meta;
   },
+  head: ({ loaderData }) => ({
+    meta: loaderData
+      ? seo({
+          title: loaderData.title,
+          description: loaderData.summary || undefined,
+          image: loaderData.image || undefined,
+          path: `/posts/${loaderData.slug}`,
+        })
+      : seo(),
+  }),
 });
 
 function Post() {

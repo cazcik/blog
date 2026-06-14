@@ -6,6 +6,7 @@ interface Frontmatter {
   author?: string;
   summary?: string;
   slug?: string;
+  image?: string;
 }
 
 interface PostModule {
@@ -19,6 +20,7 @@ export interface PostMeta {
   date: string;
   author: string;
   summary: string;
+  image: string;
 }
 
 export interface Post extends PostMeta {
@@ -39,6 +41,7 @@ const all: Post[] = Object.entries(modules).map(([path, mod]) => {
     date: fm.date,
     author: fm.author ?? "",
     summary: fm.summary ?? "",
+    image: fm.image ?? "",
     Component: mod.default,
   };
 });
